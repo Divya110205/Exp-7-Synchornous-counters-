@@ -67,51 +67,47 @@ RegisterNumber:  212222230034
 ## UPCOUNTER
 module Counters(clk,A);
 input clk;
-output reg [0:3]A;
+output reg [3:0]A;
 always @(posedge clk)
 begin
-	A[0]=(((A[2])&(A[3])&(A[1]))^A[0]);
-	A[1]=(((A[2])&(A[3]))^A[1]);
-	A[2]=(A[3])^A[2];
-	A[3]=1^A[3];
+	A[3]=(((A[0])&(A[1])&(A[2]))^A[3]);
+	A[2]=(((A[0])&(A[1]))^A[2]);
+	A[1]=(A[0])^A[1];
+	A[0]=A[0]^1;
 end
 endmodule
 
 ## DOWNCOUNTER
 module Counters(clk,A);
 input clk;
-output reg [0:3]A;
+output reg [3:0]A;
 always@(posedge clk)
 begin
-	A[0]=(((~A[2])&(~A[3])&(~A[1]))^A[0]);
-	A[1]=(((~A[2])&(~A[3]))^A[1]);
-	A[2]=(~A[3])^A[2];
-	A[3]=1^A[3];
+	A[3]=(((~A[0])&(~A[1])&(~A[2]))^A[3]);
+	A[2]=(((~A[0])&(~A[1]))^A[2]);
+	A[1]=(~A[0])^A[1];
+	A[0]=(~A[0])^1;
 end
 endmodule
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
 ## UPCOUNTER
-![up counter RTL diagram](https://github.com/Divya110205/Exp-7-Synchornous-counters-/assets/119404855/7753041f-986c-4ba1-9d4c-97fe852a48bc)
+![uc rtl](https://github.com/Divya110205/Exp-7-Synchornous-counters-/assets/119404855/a6cd0ae0-8672-4677-85af-680975a1b28d)
 
 ## DOWNCOUNTER
-
-![down counter  RTL diagram](https://github.com/Divya110205/Exp-7-Synchornous-counters-/assets/119404855/987b5099-5201-4bc0-baf5-0a865fff73b1)
+![dc rtl](https://github.com/Divya110205/Exp-7-Synchornous-counters-/assets/119404855/4aeb320c-553f-4a1c-b8db-f557dee16496)
 
 ### TIMING DIGRAMS FOR COUNTER  
 
 ## UPCOUNTER
-![down counter  RTL diagram](https://github.com/Divya110205/Exp-7-Synchornous-counters-/assets/119404855/4b710152-d119-45e9-80c0-584236b4da6c)
+![uc td](https://github.com/Divya110205/Exp-7-Synchornous-counters-/assets/119404855/15f173a1-42e5-4a7b-b8d3-53b719ca4054)
 
 ## DOWNCOUNTER
-![down counter timing diagram](https://github.com/Divya110205/Exp-7-Synchornous-counters-/assets/119404855/83a02832-8892-426d-86aa-e050632f232c)
+![dc td](https://github.com/Divya110205/Exp-7-Synchornous-counters-/assets/119404855/6dd16460-084f-460a-9182-379cb1eabf0e)
 
 ### TRUTH TABLE 
-
-## UPCOUNTER
-
-## DOWNCOUNTER
+![tt](https://github.com/Divya110205/Exp-7-Synchornous-counters-/assets/119404855/90a8a56e-8c47-4281-b9ce-5db891e1e28d)
 
 ### RESULTS 
 Thus Synchornous counters up counter and down counter circuit are studied and the truth table for different logic gates are verified.
